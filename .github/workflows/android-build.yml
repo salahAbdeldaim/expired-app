@@ -43,7 +43,8 @@ jobs:
 
       - name: Build Flet app for Android
         run: |
-          flet build apk --pip-requirements requirements.txt
+          pip install reportlab arabic_reshaper python-bidi
+          flet build apk
         
       - name: List build output (debug)
         run: |
