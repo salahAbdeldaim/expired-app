@@ -23,7 +23,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install flet-builder
+          # removed pip install flet-builder (no matching package on PyPI)
 
       - name: Set up JDK
         uses: actions/setup-java@v3
