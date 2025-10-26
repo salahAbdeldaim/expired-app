@@ -45,8 +45,16 @@ jobs:
         run: |
           flet build apk
         
-      - name: Upload APK
+      - name: List build output (debug)
+        run: |
+          echo "Listing build/ directory"
+          ls -la build || true
+          echo "Find any .apk files in workspace"
+          find . -type f -name "*.apk" -print || true
+
+      - name: Upload any APK artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: app-release
-          path: build/app/outputs/flutter-apk/app-release.apk
+          name: app-apks
+          path: '**/*.apk'
+          if-no-files-found: warn
