@@ -20,28 +20,22 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/
-      sdk: flutter
-
-  flutter:
-    uses-material-design: true
-    assets:
-      - assets/home11.gif
-      - assets/home12.gif
-      - assets/home1.gif
-      - assets/bg.jpg
-      - assets/1.png
-      - assets/facebook.png
-      - assets/whatsapp.png
-      - assets/linkedin.png
-      - assets/gmail.png
-      - assets/icon.png
-      - assets/icon.ico
-      - assets/splash_android.png
-    fonts:
-      - family: AppFont
-        fonts:
-          - asset: assets/fonts/NotoNaskhArabic-Regular.ttf
-            weight: 400
-          - asset: assets/fonts/NotoNaskhArabic-Bold.ttf
-            weight: 700
+    - assets/home11.gif
+    - assets/home12.gif
+    - assets/home1.gif
+    - assets/bg.jpg
+    - assets/1.png
+    - assets/facebook.png
+    - assets/whatsapp.png
+    - assets/linkedin.png
+    - assets/gmail.png
+    - assets/icon.png
+    - assets/icon.ico
+    - assets/splash_android.png
+  fonts:
+    - family: AppFont
+      fonts:
+        - asset: assets/fonts/NotoNaskhArabic-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/NotoNaskhArabic-Bold.ttf
+          weight: 700
