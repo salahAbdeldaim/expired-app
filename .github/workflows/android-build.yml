@@ -43,7 +43,7 @@ jobs:
 
       - name: Build Flet app for Android
         run: |
-          flet build apk
+          flet build apk --pip-requirements requirements.txt
         
       - name: List build output (debug)
         run: |
