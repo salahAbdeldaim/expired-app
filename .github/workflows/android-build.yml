@@ -41,30 +41,20 @@ jobs:
       - name: Get Flutter dependencies
         run: flutter pub get
 
-      - name: Prepare app directory
-        run: |
-          # Create app structure
-          mkdir -p app/site-packages
-          cp main.py app/
-          cp -r assets app/
-          
-          # Install dependencies to app directory
-          pip install --target=app/site-packages reportlab arabic_reshaper python-bidi
-          
-          # Create __init__.py to make it a package
-          touch app/site-packages/__init__.py
-          
-          # Update PYTHONPATH in main.py
-          sed -i '1i import sys; sys.path.insert(0, "site-packages")' app/main.py
-          
-          # Debug output
-          echo "App directory contents:"
-          ls -R app/
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
-      - name: Build Flet app for Android
+      - name: Build Docker image and create APK
         run: |
-          cd app
-          PYTHONPATH=site-packages flet build apk
+          docker build -t flet-app-builder .
+          docker run --name builder flet-app-builder
+          docker cp builder:/app/build/app/outputs/flutter-apk/app-release.apk ./app-release.apk
+          docker rm builder
+
+      - name: Debug APK
+        run: |
+          ls -la
+          file app-release.apk || true
         
       - name: List build output (debug)
         run: |
