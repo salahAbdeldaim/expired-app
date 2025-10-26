@@ -41,10 +41,13 @@ jobs:
       - name: Get Flutter dependencies
         run: flutter pub get
 
+      - name: Install dependencies and PyInstaller
+        run: |
+          pip install reportlab arabic_reshaper python-bidi pyinstaller
+
       - name: Build Flet app for Android
         run: |
-          pip install reportlab arabic_reshaper python-bidi
-          flet build apk
+          flet build apk --product-name "farma_app" --hidden-imports=reportlab,arabic_reshaper,python_bidi
         
       - name: List build output (debug)
         run: |
