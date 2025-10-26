@@ -52,9 +52,17 @@ jobs:
           echo "Find any .apk files in workspace"
           find . -type f -name "*.apk" -print || true
 
-      - name: Upload any APK artifacts
+      - name: Find APK path
+        id: find-apk
+        run: |
+          APK_PATH=$(find . -type f -name "*.apk" -print -quit)
+          echo "APK_PATH=$APK_PATH" >> $GITHUB_OUTPUT
+          echo "Found APK at: $APK_PATH"
+
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: app-apks
-          path: '**/*.apk'
-          if-no-files-found: warn
+          name: app-release.apk
+          path: ${{ steps.find-apk.outputs.APK_PATH }}
+          compression-level: 0
+          if-no-files-found: error
