@@ -41,20 +41,38 @@ jobs:
       - name: Get Flutter dependencies
         run: flutter pub get
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Build Docker image and create APK
+      - name: Install Git
         run: |
-          docker build -t flet-app-builder .
-          docker run --name builder flet-app-builder
-          docker cp builder:/app/build/app/outputs/flutter-apk/app-release.apk ./app-release.apk
-          docker rm builder
+          sudo apt-get update
+          sudo apt-get install -y git
 
-      - name: Debug APK
+      - name: Setup app directory
         run: |
-          ls -la
-          file app-release.apk || true
+          mkdir -p build_app
+          cp -r * build_app/ || true
+          cd build_app
+
+      - name: Install Python packages
+        working-directory: build_app
+        run: |
+          python -m pip install --upgrade pip wheel setuptools
+          pip install Pillow==10.0.0
+          pip install -r requirements.txt
+
+      - name: Accept Android licenses
+        run: |
+          yes | flutter doctor --android-licenses || true
+
+      - name: Build APK
+        working-directory: build_app
+        run: |
+          export ANDROID_HOME=/usr/local/lib/android/sdk
+          flet build apk
+
+      - name: List build artifacts
+        run: |
+          echo "Listing build directory..."
+          find . -name "*.apk" -type f
         
       - name: List build output (debug)
         run: |
