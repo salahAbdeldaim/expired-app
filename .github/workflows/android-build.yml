@@ -41,22 +41,30 @@ jobs:
       - name: Get Flutter dependencies
         run: flutter pub get
 
-      - name: Create bundle directory
+      - name: Prepare app directory
         run: |
-          mkdir -p bundle
-          cp -r * bundle/ || true
-          cp requirements.txt bundle/
+          # Create app structure
+          mkdir -p app/site-packages
+          cp main.py app/
+          cp -r assets app/
           
-      - name: Install dependencies
-        run: |
-          pip install reportlab arabic_reshaper python-bidi
+          # Install dependencies to app directory
+          pip install --target=app/site-packages reportlab arabic_reshaper python-bidi
+          
+          # Create __init__.py to make it a package
+          touch app/site-packages/__init__.py
+          
+          # Update PYTHONPATH in main.py
+          sed -i '1i import sys; sys.path.insert(0, "site-packages")' app/main.py
+          
+          # Debug output
+          echo "App directory contents:"
+          ls -R app/
 
       - name: Build Flet app for Android
-        env:
-          FLET_PLATFORM_PYTHON_EXTRA: "reportlab,arabic_reshaper,python_bidi"
         run: |
-          cd bundle
-          flet build apk
+          cd app
+          PYTHONPATH=site-packages flet build apk
         
       - name: List build output (debug)
         run: |
