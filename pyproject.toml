@@ -1,0 +1,15 @@
+[project]
+name = "Orx"
+version = "1.0.0"
+description = "Orx مساعدك الشخصي في جيبك!"
+requires-python = ">=3.9"
+dependencies = [
+    "flet==0.28.3"
+]
+
+[tool.flet]
+org = "com.salah.Orxapp"
+product = "Orx"
+company = "Salah Abdeldaim"
+copyright = "Copyright (C) 2025 Salah Abdeldaim"
+icon = "assets/icon.png"  

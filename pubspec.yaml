@@ -1,0 +1,47 @@
+name: farma_app
+description: A Flet/Flutter application for managing pharmacy inventory.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flet: ^0.28.3
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+      sdk: flutter
+
+  flutter:
+    uses-material-design: true
+    assets:
+      - assets/home11.gif
+      - assets/home12.gif
+      - assets/home1.gif
+      - assets/bg.jpg
+      - assets/1.png
+      - assets/facebook.png
+      - assets/whatsapp.png
+      - assets/linkedin.png
+      - assets/gmail.png
+      - assets/icon.png
+      - assets/icon.ico
+      - assets/splash_android.png
+    fonts:
+      - family: AppFont
+        fonts:
+          - asset: assets/fonts/NotoNaskhArabic-Regular.ttf
+            weight: 400
+          - asset: assets/fonts/NotoNaskhArabic-Bold.ttf
+            weight: 700
