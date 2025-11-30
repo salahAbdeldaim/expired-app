@@ -1,81 +1,80 @@
-# Expired app
+# 💊 FarmaApp - نظام إدارة الصيدليات
 
-## Run the app
+<div align="center">
+  <img src="assets/logo.png" width="150" alt="FarmaApp Logo">
+  <br><br>
+  <b>نظام متكامل لإدارة مخزون الصيدليات، تتبع تواريخ الصلاحية، وإنشاء تقارير PDF تدعم اللغة العربية بالكامل.</b>
+  <br><br>
 
-### uv
+  <img src="https://img.shields.io/badge/Built%20with-Flet%20(Python)-blue?style=for-the-badge&logo=python" />
+  <img src="https://img.shields.io/badge/Database-SQLite-07405E?style=for-the-badge&logo=sqlite" />
+  <img src="https://img.shields.io/badge/PDF-ReportLab%20%2B%20Arabic-red?style=for-the-badge&logo=adobeacrobatreader" />
+</div>
 
-Run as a desktop app:
+---
 
-```
-uv run flet run
-```
+## 📖 نظرة عامة (Overview)
 
-Run as a web app:
+**FarmaApp** هو تطبيق ديسكتوب حديث تم بناؤه باستخدام إطار عمل **Flet** (Python).  
+يهدف التطبيق لتبسيط العمليات اليومية في الصيدليات الصغيرة والمتوسطة من خلال إدارة المخزون، تتبع التواريخ، وإعداد تقارير PDF باحترافية.
 
-```
-uv run flet run --web
-```
+أهم ما يميز هذا المشروع هو **الدعم الكامل للغة العربية** في الواجهة وفي **تقارير الـ PDF** دون أي مشاكل تقطيع أو اتجاه النص (RTL).
 
-### Poetry
+---
 
-Install dependencies from `pyproject.toml`:
+## ✨ المميزات الرئيسية (Key Features)
 
-```
-poetry install
-```
+- **إدارة المخزون:** إضافة، تعديل، وحذف الأصناف مع تسجيل الكميات والأسعار.  
+- **تتبع تواريخ الصلاحية:** فلترة ذكية حسب الشهر والسنة لتجنب انتهاء الأدوية.  
+- **تقارير PDF عربية:** تصدير تقارير جرد احترافية تدعم العربية بالكامل.  
+- **قاعدة بيانات SQLite محلية:** حفظ البيانات على جهاز المستخدم مع دعم Auto-Migration.  
+- **الوضع الليلي (Dark Mode):** واجهة جذابة ومريحة للعين.  
+- **إعدادات مخصصة:** تخصيص اسم الصيدلية وبيانات الطبيب في ترويسة التقارير.
 
-Run as a desktop app:
+---
 
-```
-poetry run flet run
-```
+## 📸 لقطات شاشة (Screenshots)
 
-Run as a web app:
+| الصفحة الرئيسية | إضافة دواء جديد |
+|:---:|:---:|
+| <img src="assets/home.png" width="400" alt="Home Page" /> | <img src="assets/add_item.png" width="400" alt="Add Item Page" /> |
 
-```
-poetry run flet run --web
-```
+| تقرير PDF (يدعم العربية) | الوضع الليلي |
+|:---:|:---:|
+| <img src="assets/pdf_report.png" width="400" alt="PDF Example" /> | <img src="assets/dark_mode.png" width="400" alt="Dark Mode" /> |
 
-For more details on running the app, refer to the [Getting Started Guide](https://flet.dev/docs/getting-started/).
+> *(يرجى إضافة الصور الخاصة بك داخل مجلد `assets/` لتظهر هنا)*
 
-## Build the app
+---
 
-### Android
+## 🚀 تشغيل التطبيق (Getting Started)
 
-```
-flet build apk -v
-```
+### 1️⃣ تثبيت المكتبات المطلوبة
+تأكد من وجود Python 3.x ثم نفّذ:
 
-For more details on building and signing `.apk` or `.aab`, refer to the [Android Packaging Guide](https://flet.dev/docs/publish/android/).
-
-### iOS
-
-```
-flet build ipa -v
-```
-
-For more details on building and signing `.ipa`, refer to the [iOS Packaging Guide](https://flet.dev/docs/publish/ios/).
-
-### macOS
-
-```
-flet build macos -v
+```bash
+pip install flet reportlab arabic-reshaper python-bidi
 ```
 
-For more details on building macOS package, refer to the [macOS Packaging Guide](https://flet.dev/docs/publish/macos/).
-
-### Linux
-
-```
-flet build linux -v
+### 2️⃣ تشغيل التطبيق
+```bash
+python main.py
 ```
 
-For more details on building Linux package, refer to the [Linux Packaging Guide](https://flet.dev/docs/publish/linux/).
+---
 
-### Windows
+## 🛠️ التقنيات المستخدمة (Tech Stack)
 
-```
-flet build windows -v
-```
+- **Language:** Python 3.x  
+- **GUI Framework:** Flet (Flutter-based)  
+- **Database:** SQLite3  
+- **PDF Engine:** ReportLab  
+- **Arabic Text Handling:** arabic-reshaper, python-bidi  
 
-For more details on building Windows package, refer to the [Windows Packaging Guide](https://flet.dev/docs/publish/windows/).
+---
+
+<div align="center">
+  Developed with ❤️ by <b>Salah Abdeldaim</b>
+</div>
+
+---
