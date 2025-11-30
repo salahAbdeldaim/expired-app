@@ -37,11 +37,11 @@
 
 | الصفحة الرئيسية | إضافة دواء جديد |
 |:---:|:---:|
-| <img src="assets/home.png" width="400" alt="Home Page" /> | <img src="assets/add_item.png" width="400" alt="Add Item Page" /> |
+| <img src="assets/screanshots/home.png" width="400" alt="Home Page" /> | <img src="assets/screanshots/add_item.png" width="400" alt="Add Item Page" /> |
 
 | تقرير PDF (يدعم العربية) | الوضع الليلي |
 |:---:|:---:|
-| <img src="assets/pdf_report.png" width="400" alt="PDF Example" /> | <img src="assets/dark_mode.png" width="400" alt="Dark Mode" /> |
+| <img src="assets/screanshots/pdf_report.png" width="400" alt="PDF Example" /> | <img src="assets/screanshots/dark_mode.png" width="400" alt="Dark Mode" /> |
 
 > *(يرجى إضافة الصور الخاصة بك داخل مجلد `assets/` لتظهر هنا)*
 
